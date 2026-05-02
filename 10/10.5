@@ -1,0 +1,34 @@
+balance = 1000
+
+
+while True:
+    print("Меню банкомата:")
+    print("1. Узнать баланс")
+    print("2. Снять 100 руб")
+    print("3. Пополнить 100 руб")
+    print("4. Выход")
+    
+    function_selection = int(input("Выберите операцию (1-4): "))
+    
+    if function_selection == 1:
+        print(f"Текущий баланс: {balance} руб.")
+    
+    elif function_selection == 2:
+        if balance >= 100:
+            balance = balance - 100
+            print("Снято 100 руб.")
+            print(f"Текущий баланс: {balance} руб.")
+        else:
+            print("Недостаточно средств")
+    
+    elif function_selection == 3:
+        balance = balance + 100
+        print("Внесено 100 руб.")
+        print(f"Текущий баланс: {balance} руб.")
+    
+    elif function_selection == 4:
+        print("До свидания!")
+        break
+    
+    else:
+        print("Неверная команда")
