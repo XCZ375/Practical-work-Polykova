@@ -1,0 +1,16 @@
+# Считываем строку чисел 
+raw_input = input("Введите целые числа через пробел: ")
+
+# Преобразуем каждый элемент строки в целое число
+numbers = [int(x) for x in raw_input.split()]
+
+pair_count = 0
+
+# Получаем уникальные значения через set чтобы не считать одно число дважды
+for unique_number in set(numbers):
+    # Считаем сколько раз данное число встречается в списке
+    frequency = numbers.count(unique_number)
+    # Целочисленное деление на 2 даёт количество пар
+    pair_count += frequency // 2
+
+print(pair_count)
