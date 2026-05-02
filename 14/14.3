@@ -1,0 +1,27 @@
+import random
+
+# Генерируем вложенный список с отрицательными числами
+nested_list = [
+    [random.randint(-10, 10) for _ in range(6)]
+    for _ in range(4)]
+
+print("Исходный вложенный список:")
+for row_index in range(len(nested_list)):
+    print(f"  Строка {row_index}: {nested_list[row_index]}")
+
+# Создаём новый вложенный список только с положительными
+filtered_list = [
+    [item for item in row if item > 0]   # оставляем только положительные
+    for row in nested_list               # для каждой строки исходного списка
+]
+
+print("Отфильтрованный список (только положительные элементы):")
+for row_index in range(len(filtered_list)):
+    print(f"  Строка {row_index}: {filtered_list[row_index]}")
+
+# Дополнительная статистика для наглядности
+original_count = sum(len(row) for row in nested_list)
+filtered_count = sum(len(row) for row in filtered_list)
+print(f"Элементов в исходном списке:      {original_count}")
+print(f"Элементов после фильтрации:       {filtered_count}")
+print(f"Отфильтровано:                    {original_count - filtered_count}")
