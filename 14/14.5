@@ -1,0 +1,23 @@
+# Считываем максимальное количество предметов которые игрок может унести
+n = int(input("Сколько предметов может унести игрок: "))
+
+# Считываем ценности всех найденных предметов через пробел
+raw_values = input("Ценности предметов через пробел: ")
+
+# Формируем список целых чисел из введённой строки
+item_values = [int(x) for x in raw_values.split()]
+
+# Сортируем копию списка по убыванию
+sorted_values = sorted(item_values, reverse=True)
+
+# Берём первые N предметов
+# Если предметов меньше N берём все
+items_to_take = sorted_values[:n]
+
+# Считаем суммарную ценность выбранных предметов
+
+valuable_items = [value for value in items_to_take if value > 0]
+
+# Суммируем только ценные предметы
+total_value = sum(valuable_items)
+print(total_value)
