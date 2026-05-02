@@ -1,0 +1,5 @@
+for a in range(1, 14):  # месяцы по 28 дней
+    for b in range(1, 13):  # месяцы по 30 дней
+        for c in range(1, 12):  # месяцы по 31 дню
+            if 28 * a + 30 * b + 31 * c == 365:
+                print(f"a = {a}, b = {b}, c = {c}")
