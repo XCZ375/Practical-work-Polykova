@@ -1,0 +1,24 @@
+numbers = [8, 9, 10, 11]
+print(f"Исходный список:              {numbers}")
+
+# Обращаемся напрямую по индексу
+numbers[1] = 17
+print(f"После замены 2 элемента:   {numbers}")
+
+# Добавляем числа 4 5 6 в конец списка
+numbers.extend([4, 5, 6])
+print(f"После добавления 4 5 6:     {numbers}")
+
+# Удаляем первый элемент
+numbers.pop(0)
+print(f"После удаления 1 элемента: {numbers}")
+
+# Удваиваем список
+numbers.extend(numbers.copy())
+print(f"После удвоения:               {numbers}")
+
+# Вставляем число 25 по индексу 3
+numbers.insert(3, 25)
+print(f"После вставки 25 по индексу 3:{numbers}")
+
+print(numbers)
