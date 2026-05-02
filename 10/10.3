@@ -1,0 +1,11 @@
+max_num = int(input('Введите первое число:')) # Запрашиваем первое число
+
+while True:
+    num = int(input('Введите второе число:')) # Запрашиваем второе число
+    if num == 0: # Цикл закончится только если ввести "0"
+        break
+    
+    if num > max_num:
+        max_num = num
+
+print(max_num)
