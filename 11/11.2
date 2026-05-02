@@ -1,0 +1,19 @@
+count = 0 # счетчик найденных решений
+
+for bulls in range(1,11):
+    # макс. коров
+    for cows in range(1, (100 - bulls * 10) // 5 + 1):
+        # кол во телят по условию всего 100
+        calves = 100 - bulls - cows
+
+        # телят должно быть натуральное число
+        if calves < 1:
+            continue
+
+        # проверяем денежное условие
+        total = bulls * 20 + cows * 10 + calves * 1 # все * 2
+
+        if total == 200: #100 руб * 2
+            print(f" {bulls} {cows} {calves}"
+                  f" {bulls + cows +  calves } руб.")
+            count += 1
