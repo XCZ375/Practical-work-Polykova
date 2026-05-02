@@ -1,0 +1,27 @@
+ip_string = input("Введите IP адрес: ")
+
+# Разбиваем строку по точке 
+ip_parts = ip_string.split(".")
+
+# Проверяем что частей ровно 4 
+if len(ip_parts) == 4:
+    # Флаг корректности 
+    is_valid = True
+
+    for part in ip_parts:
+        # Проверяем что каждая часть состоит только из цифр
+        if not part.isdigit():
+            is_valid = False
+            break
+
+        # Преобразуем в число и проверяем диапазон 0-255
+        octet = int(part)
+        if octet < 0 or octet > 255:
+            is_valid = False
+            break
+else:
+    # Количество частей не равно 4 
+    is_valid = False
+
+# Выводим результат
+print("ДА" if is_valid else "НЕТ")
