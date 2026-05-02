@@ -1,0 +1,29 @@
+import random
+
+# Генерируем вложенный список
+nested_list = [
+    [random.randint(-50, 50) for _ in range(5)]
+    for _ in range(4)]
+
+print("Вложенный список:")
+for row in nested_list:
+    print(f"  {row}")
+
+# Берём первый элемент как стартовый максимум
+max_value = nested_list[0][0]
+max_row_index = 0       # индекс строки где найден максимум
+max_col_index = 0       # индекс позиции внутри строки
+
+# Перебираем все строки и все элементы
+for row_index in range(len(nested_list)):
+    for col_index in range(len(nested_list[row_index])):
+        # Сравниваем текущий элемент с текущим максимумом
+        if nested_list[row_index][col_index] > max_value:
+            max_value = nested_list[row_index][col_index]
+            max_row_index = row_index
+            max_col_index = col_index
+
+print(f"Максимальный элемент: {max_value}")
+print(f"Позиция: строка {max_row_index}, столбец {max_col_index}")
+print(f"Проверка: nested_list{max_row_index}{max_col_index} = "
+      f"{nested_list[max_row_index][max_col_index]}")
