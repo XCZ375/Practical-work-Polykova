@@ -1,0 +1,21 @@
+# Считываем цены предметов в порядке сбора
+raw_prices = input("Введите цены предметов через пробел: ")
+
+# Формируем список целых чисел
+original_order = [int(x) for x in raw_prices.split()]
+
+#  Сортировка по возрастанию цены.
+ascending_order = sorted(original_order)
+
+# Сортировка по убыванию цены.
+descending_order = sorted(original_order, reverse=True)
+
+# Создаём явную копию через срез
+collection_order = original_order[:]
+
+reverse_collection_order = list(reversed(original_order))
+     
+print(f"Сортировка по возрастанию: {ascending_order}")
+print(f"Сортировка по убыванию: {descending_order}")
+print(f"Оригинальный порядок (от старых к новым): {collection_order}")
+print(f"Обратный порядок (от новых к старым): {reverse_collection_order}")
