@@ -1,0 +1,39 @@
+import random
+
+# Генерируем вложенный список
+nested_list = [
+    [random.randint(1, 10) for _ in range(5)]
+    for _ in range(4)
+]
+
+print("Вложенный список:")
+for row_index in range(len(nested_list)):
+    print(f"  Строка {row_index}: {nested_list[row_index]}")
+
+# Выбираем значение для поиска
+search_value = nested_list[random.randint(0, 3)][random.randint(0, 4)]
+print(f"\nИщем значение: {search_value}")
+
+# Список для хранения всех найденных позиций в виде кортежей
+found_positions = []
+
+# Флаг найден ли элемент хотя бы раз
+is_found = False
+
+# Перебираем каждую строку и каждый элемент
+for row_index in range(len(nested_list)):
+    for col_index in range(len(nested_list[row_index])):
+        # Сравниваем текущий элемент
+        if nested_list[row_index][col_index] == search_value:
+            found_positions.append((row_index, col_index))
+            is_found = True   # отмечаем что нашли хотя бы одно вхождение
+
+# Выводим результат поиска
+if is_found:
+    print(f"Элемент {search_value} найден в {len(found_positions)} позиц.:")
+    for pos in found_positions:
+        row_i, col_i = pos
+        print(f"  nested_list[{row_i}][{col_i}] = "
+              f"{nested_list[row_i][col_i]}")
+else:
+    print(f"Элемент {search_value} не найден в списке.")
