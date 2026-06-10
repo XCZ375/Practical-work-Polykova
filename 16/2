@@ -1,0 +1,9 @@
+allowed = set(input("Ввод (база): ").split())
+incoming = input("Ввод (входящие): ").split()
+
+for id in incoming:
+    if id in allowed:
+        print("OK")
+    else:
+        print("ADDED")
+        allowed.add(id)
