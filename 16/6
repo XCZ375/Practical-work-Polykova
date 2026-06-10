@@ -1,0 +1,10 @@
+dept1 = set(input("Ввод 1: ").split())
+dept2 = set(input("Ввод 2: ").split())
+dept3 = set(input("Ввод 3: ").split())
+
+all_ids = set(str(i) for i in range(11))
+present = dept1 | dept2 | dept3
+
+ghosts = all_ids - present
+
+print(" ".join(sorted(ghosts, key=int)))
