@@ -1,0 +1,38 @@
+def is_prime(num):
+    """
+    Проверяет, является ли число простым
+
+    Возвращает:
+        bool: True если число простое False в противном случае
+    """
+    if num < 2:
+        return False
+
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+
+    return True
+
+
+def get_next_prime(num):
+    """
+    Возвращает первое простое число, строго большее num.
+
+    Возвращает:
+        int: следующее простое число после num
+    """
+    # Начинаем поиск со следующего числа после num
+    candidate = num + 1
+
+    # Увеличиваем кандидата, пока не найдём простое
+    while not is_prime(candidate):
+        candidate += 1
+
+    return candidate
+
+# Проверка работы функции
+print(get_next_prime(6))  # 7 следующее простое после 6
+print(get_next_prime(7))  # 11 следующее простое после 7 (8,9,10 — составные)
+print(get_next_prime(14))  # 17 следующее простое после 14
+
