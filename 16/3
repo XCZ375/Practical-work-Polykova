@@ -1,0 +1,8 @@
+server_a = set(input("Ввод (Сервер A): ").split())
+server_b = set(input("Ввод (Сервер B): ").split())
+
+common = server_a & server_b
+lost = server_a - server_b
+
+print("Общие:", " ".join(sorted(common)))
+print("Потерянные:", " ".join(sorted(lost)))
