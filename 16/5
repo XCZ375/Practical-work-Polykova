@@ -1,0 +1,10 @@
+log1 = set(input("Ввод 1: ").split())
+log2 = set(input("Ввод 2: ").split())
+log3 = set(input("Ввод 3: ").split())
+
+all_ips = log1 | log2 | log3
+in_all_three = log1 & log2 & log3
+
+suspicious = all_ips - in_all_three
+
+print(" ".join(sorted(suspicious, key=lambda ip: list(map(int, ip.split("."))))))
