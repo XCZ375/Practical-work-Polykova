@@ -1,0 +1,67 @@
+def is_palindrome(n):
+    """
+    Проверяет, является ли число палиндромом.
+    Палиндром читается одинаково слева направо и справа налево.
+    """
+    s = str(n)
+    return s == s[::-1]  # сравниваем строку с её обратной копией
+
+
+def is_prime(n):
+    """
+    Проверяет, является ли число простым.
+    Возвращает:
+        bool: True если число простое, False иначе
+    """
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+def is_valid_password(password):
+    """
+    Проверяет, является ли пароль действительным паролем BEEGEEK банка.
+
+    Формат пароля: a:b:c, где:
+        a — натуральное число-палиндром
+        b — натуральное простое число
+        c — натуральное чётное число
+    Возвращает:
+        bool: True если пароль действительный, False иначе
+    """
+    parts = password.split(":")
+
+    # Пароль должен состоять ровно из трёх частей
+    if len(parts) != 3:
+        return False
+
+    # Все части должны быть целыми числами
+    if not all(part.isdigit() for part in parts):
+        return False
+
+    a, b, c = int(parts[0]), int(parts[1]), int(parts[2])
+
+    # Условие 1: a — палиндром
+    if not is_palindrome(a):
+        return False
+
+    # Условие 2: b — простое число
+    if not is_prime(b):
+        return False
+
+    # Условие 3: c — чётное число
+    if c % 2 != 0:
+        return False
+
+    return True
+
+
+# Проверка работы функции
+print(is_valid_password('1221:101:22'))  # 1221-палиндром, 101-простое, 22-чётное → True
+print(is_valid_password('565:30:50'))  # 30 — не простое (2*3*5) → False
+print(is_valid_password('112:7:9'))  # 9 — нечётное → False
+print(is_valid_password('1221:101:22:22'))  # четыре части вместо трёх → False
+
